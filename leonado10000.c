@@ -179,6 +179,46 @@ void addInput(){
         last = N;
     }
 }
+struct feedback{
+    int Room_ID;
+    char Room_Feedback[1000];
+    struct feedback *next;
+}*feed,*feedback,*temp=NULL,*firs=NULL,*las=NULL;
+
+void comments(){
+    //  create a node and enter room id and feedback
+    void creatr(){
+        temp=(struct feedback*)malloc(sizeof(struct feedback));
+        printf("\nEnter the Room_ID\n");
+        scanf("%d",temp->Room_ID);
+        printf("\nEnter the Feedback\n");
+        fflush(stdin);
+        fflush(stdin);
+        gets(temp->Room_Feedback);
+        temp->next=NULL;
+    }
+
+    creatr();
+    if (firs == NULL){
+        firs = temp;
+        las = firs;
+    }
+    else{
+        las->next = temp;
+        las = temp;
+    }
+
+    void display(){
+        temp = firs;
+        printf("\tRoomID\t\t Comment\n");
+        while(temp){
+            printf("\n\t%d\t\t  %s\n\n",temp->Room_ID,temp->Room_Feedback);
+            temp = temp -> next;
+        }
+    }
+
+    display();
+}
 
 
 
@@ -205,6 +245,7 @@ void main(){
                 break;
             case 2:
                 printf("Enter the comment you want to add");
+                comments();
                 break;
             case 3:
                 display();
