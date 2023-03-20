@@ -79,14 +79,14 @@ Node createNode(D base){
 Node Enter_dets(){
     char room_pref,l;
     int beds,i;
-    printf("Enter room preference\n1.For type A\t2.For type B\t3.For type C");    
+    printf("Enter room preference\n1.For type A\t2.For type B\t3.For type C\n");    
     scanf("%s",&room_pref);
     if(room_pref==1){
         i=check(1);
         l=1;
     }
     else if(room_pref==2){
-        printf("Enter the number of rooms(beds) [2,3]");
+        printf("Enter the number of rooms(beds) [2,3]\n");
         scanf("%d",&beds);
         if(beds==2){
             i=check(3);
@@ -98,7 +98,7 @@ Node Enter_dets(){
         }
     }
     else if(room_pref==3){
-        printf("Enter the number of rooms(beds) [2,1]");
+        printf("Enter the number of rooms(beds) [2,1]\n");
         scanf("%d",&beds);
         if(beds==1){
             i=check(5);
@@ -112,26 +112,26 @@ Node Enter_dets(){
     Node N;
     if(i){
         D temp;
-        printf("Enter room ID");
+        printf("Enter room ID :");
         scanf("%d",&temp.ID);
-        printf("Enter Name");
+        printf("Enter Name :");
         scanf("%s",&temp.name);
-        printf("Enter No. of adults");
+        printf("Enter No. of adults :");
         scanf("%d",&temp.Adults);
-        printf("Enter No. of Children");
+        printf("Enter No. of Children :");
         scanf("%d",&temp.children);
-        printf("Enter start day");
+        printf("Enter start day :");
         scanf("%d",&temp.start_day);
-        printf("Enter end day");
+        printf("Enter end day :");
         scanf("%d",&temp.end_day);
-        printf("Enter amount");
+        printf("Enter amount :");
         scanf("%d",&temp.amount);
         temp.room_type = l;
         N = createNode(temp);
     }
     else{
         int ch;
-        printf("Room not availables,\nEnter 1 for trying again\t2 for Skip");
+        printf("Room not availables,\nEnter 1 for trying again\t2 for Skip\n");
         scanf("%d",&ch);
         if(ch==1){
             Enter_dets();
@@ -244,7 +244,7 @@ void main(){
                 Enter_dets();
                 break;
             case 2:
-                printf("Enter the comment you want to add");
+                printf("Enter the comment you want to add\n");
                 comments();
                 break;
             case 3:
